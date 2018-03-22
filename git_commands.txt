@@ -1,0 +1,55 @@
+==============================================================
+             GIT Commands
+==============================================================
+1. How to upload the prooject to github?
+
+-> Create a new repository in github without tick the checkbox of "Initialize this repository with a README"
+-> goto the project path in your system and then right click to this project and select the git bash
+-> Now git bash command opened and now initialize the project using commant
+   git init
+-> now check the status using command
+   git status
+   (There you find untracked files need to added in github repository)
+-> Add all the untracked files of project folder using 
+   git add .
+-> now commit the project with appropriate message
+   git commit -m "message"
+-> add to remote repository
+   git remote add origin <url> // for eg: git add add origin https://github.com/surajtech003/SimplehibernateProgram.git
+-> now push the code using command
+   git push -u origin <branch-name> // for eg: git push -u origin master
+------------------------------------------------------------------------------------------------------------------------
+2. How to clone the repository in your system
+  
+-> go to the drive // cd f:
+-> git clone <url> // for eg: git clone https://github.com/surajtech003/SimplehibernateProgram.git
+------------------------------------------------------------------------------------------------------------------------
+
+3. How to make change in existing project and commit and push
+-> goto the drive where you need to change // for eg: cd c/project/src-->Main.java
+-> Manually open file and make change and then check in unstaging
+   git status // it will show the file is modified and in unstaging area and need to move in staging area
+-> add to in staging area using command
+   git add .
+-> now again check using "git status" command, now it is in staging area and need to commit
+-> now commit the code 
+   git commit -m "message"
+-> You can check log also, how many times you commit the code, This will show all commit with commit id
+   git log or git log -<number> // for eg: git log -3
+-> Now push the code to master branch
+   git push -u origin master
+------------------------------------------------------------------------------------------------------------------------
+4. How to revert the code 
+-> git revert <commit id>
+------------------------------------------------------------------------------------------------------------------------
+5. How to take code from staging to unstaging area
+-> git reset HEAD <filename> // for eg: git reset HEAD demo.txt
+------------------------------------------------------------------------------------------------------------------------
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/surajtech003/AngularJsServletProject.git
+git push -u origin master
+git clone
+
+
