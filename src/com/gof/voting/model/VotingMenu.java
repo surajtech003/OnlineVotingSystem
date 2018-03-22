@@ -1,16 +1,16 @@
 package com.gof.voting.model;
 
 /**
- * This Class is utility bean for transerring.
+ * This Class is utility bean for transfering.
  * 
  * @author suraj singh
  */
 public class VotingMenu {
-	
+
 	private int serialNumber;
-	
+
 	private String partyName;
-	
+
 	private int symbol;
 
 	public int getSerialNumber() {
