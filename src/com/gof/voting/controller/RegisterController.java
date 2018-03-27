@@ -43,7 +43,7 @@ public class RegisterController extends HttpServlet {
 		RegisterService service = new RegisterServiceImpl();
 		boolean isRegister = service.registerLogger(loginDetails);
 		if(isRegister){                
-            response.setContentType("text/html;charset=UTF-8");
+			response.setContentType("text/html;charset=UTF-8");
             response.getWriter().write("True");
 		}
 		System.out.println(isRegister);

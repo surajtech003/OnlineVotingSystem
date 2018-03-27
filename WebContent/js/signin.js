@@ -5,3 +5,36 @@ window.onclick = function(event) {
 	   modal.style.display = "none";
 	}
 };
+
+function validateLogin() {
+	var userName = document.getElementById("userName").value;
+	var password = document.getElementById("password").value;
+	//alert(userName+"--hello valitate here--"+password);
+	
+	if (userName==null || userName=="")
+	{ 
+		alert("userName can't be blank"); 
+		return false;  
+	} 
+	else if(password==null || password=="")
+	{
+		alert("password can't be blank");
+		return false;
+	}
+	else 
+	{
+		$.ajax({
+            type: "GET",
+            url:"login",
+            data:{"userName":userName,"password":password},
+            success: function (data) {
+               if(data=='True'){
+             	  var successUrl = "/OnlineVotingSystem/jsp/admin.jsp"; 
+             	  window.location.href = successUrl;
+               }else{
+                   alert('Something went wrong..!');
+               }
+            }
+     });
+	}
+}
