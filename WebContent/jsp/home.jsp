@@ -16,10 +16,7 @@
 float:right;
 }
 </style>
-
-<!-- <script src='/OnlineVotingSystem/js/loginPopup.js'></script>
-<script src='/OnlineVotingSystem/js/signupPopup.js'></script> -->
-<body>
+<body onload="carousel();">
 
 <!-- Login Modal  -->
 <div id="id01" class="modal">
@@ -94,9 +91,17 @@ float:right;
   <a href="#contact" class="w3-button w3-bar-item">Contact</a>
   <a href="#" class="w3-button w3-bar-item" id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign In</a>
   <a href="#" class="w3-button w3-bar-item" id="login" onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Sign Up</a>
-  <!-- <span class="login"><a href="#" class="w3-button w3-bar-item">Sign In</a></span>
-  <span class="signup"><a href="#" class="w3-button w3-bar-item">Sign Up</a></span> -->
 </nav>
+
+<!-- Slide Show -->
+<section class="w3-center w3-content">
+  <img class="mySlides" src="/OnlineVotingSystem/images/election-nov13-h-new.jpg"
+  style="width:100%;margin-top:1px;">
+  <img class="mySlides" src="/OnlineVotingSystem/images/hqdefault_pradesh.jpg"
+  style="width:100%;margin-top:1px;">
+  <img class="mySlides" src="/OnlineVotingSystem/images/hqdefault.jpg"
+  style="width:100%;margin-top:1px;">
+</section>
 
 <!-- Band Description -->
 <section class="w3-container w3-center w3-content" style="max-width:600px">
@@ -125,7 +130,7 @@ float:right;
 </section> 
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+<footer class="w3-container w3-center w3-black">
   <a href="#"><i class="fa fa-facebook-official"></i></a>
   <a href="#"><i class="fa fa-pinterest-p"></i></a>
   <a href="#"><i class="fa fa-twitter"></i></a>
@@ -135,6 +140,5 @@ float:right;
   Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a>
   </p>
 </footer>
-
 </body>
 </html>
