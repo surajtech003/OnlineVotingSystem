@@ -102,15 +102,4 @@ public class AesEncrptionDecryptionAlgo {
 		}
 		return sb.toString();
 	}
-
-	
-	/*public static void main(String[] args) throws Exception {
-		AesEncrptionDecryptionAlgo sha256CryptoAES = new AesEncrptionDecryptionAlgo();
-		String enc = sha256CryptoAES.encrypt("surajcse");
-		System.out.println(enc);
-		String dec = sha256CryptoAES.decrypt(enc);
-		System.out.println(dec);
-		System.out.println("suraj".equals(dec));
-	}*/
-	 
 }

@@ -23,12 +23,14 @@ function validateLogin() {
 	}
 	else 
 	{
+		alert('else block');
 		$.ajax({
             type: "GET",
             url:"login",
             data:{"userName":userName,"password":password},
             success: function (data) {
                if(data=='True'){
+            	   alert('called signin.js');
              	  var successUrl = "/OnlineVotingSystem/jsp/admin.jsp"; 
              	  window.location.href = successUrl;
                }else{

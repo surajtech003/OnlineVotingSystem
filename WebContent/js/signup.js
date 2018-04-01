@@ -7,7 +7,6 @@ window.onclick = function(event) {
 }
 
 function validateRegisterForm() {
-	alert("function called");
 	var userName = document.getElementById("uname").value;
 	var password = document.getElementById("pass").value;
 	var cnfPassword = document.getElementById("cnfPass").value;

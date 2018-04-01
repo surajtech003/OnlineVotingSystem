@@ -50,16 +50,6 @@ public class SenderMail {
 			username = properties.getProperty(EmailConstants.SENDER_USERNAME);
 			password = properties.getProperty(EmailConstants.SENDER_PASSWORD);
 			
-			/*System.out.println("static block------>");
-			System.out.println(mail_host);
-			System.out.println(mail_port);
-			System.out.println(mail_auth);
-			System.out.println(mail_tls_enable);
-			System.out.println(subject);
-			System.out.println(messageBody);
-			System.out.println(username);
-			System.out.println(password);*/
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,20 +92,4 @@ public class SenderMail {
 			// TODO: handle exception
 		}
 	}
-	/*public static void main(String[] args) {
-		
-		System.out.println(mail_host);
-		System.out.println(mail_port);
-		System.out.println(mail_auth);
-		System.out.println(mail_tls_enable);
-		System.out.println(subject);
-		System.out.println(messageBody);
-		System.out.println(username);
-		System.out.println(password);
-
-		SenderMail senderMail = new SenderMail();
-		senderMail.sendMail("surajcse33@gmail.com");
-		System.out.println("done");
-		
-	}*/
 }
