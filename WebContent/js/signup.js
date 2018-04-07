@@ -7,6 +7,8 @@ window.onclick = function(event) {
 }
 
 function validateRegisterForm() {
+	var fname = document.getElementById("fname").value;
+	var lname = document.getElementById("lname").value;
 	var userName = document.getElementById("uname").value;
 	var password = document.getElementById("pass").value;
 	var cnfPassword = document.getElementById("cnfPass").value;
@@ -14,7 +16,17 @@ function validateRegisterForm() {
 	var email = document.getElementById("email").value;
 	//alert(userName+"--hello valitate here--"+password);
 	
-	if (userName==null || userName=="")
+	if (fname==null || fname=="")
+	{ 
+		alert("fname can't be blank"); 
+		return false;  
+	} 
+	else if (lname==null || lname=="")
+	{ 
+		alert("lname can't be blank"); 
+		return false;  
+	} 
+	else if (userName==null || userName=="")
 	{ 
 		alert("userName can't be blank"); 
 		return false;  
@@ -49,7 +61,7 @@ function validateRegisterForm() {
 		$.ajax({
             type: "GET",
             url:"register",
-            data:{"userName":userName,"password":password,"role":role,"email":email},
+            data:{"fname":fname,"lname":lname,"userName":userName,"password":password,"role":role,"email":email},
             success: function (data) {
             	alert("data-->"+data);
                if(data=='True'){

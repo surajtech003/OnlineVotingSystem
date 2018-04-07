@@ -3,9 +3,11 @@ package com.gof.voting.serviceImpl;
 import java.sql.Connection;
 
 import com.gof.voting.crypto.AesEncrptionDecryptionAlgo;
-import com.gof.voting.dao.RegisterDao;
-import com.gof.voting.daoImpl.RegisterDaoImpl;
+import com.gof.voting.dao.LoginDetailsDao;
+import com.gof.voting.daoImpl.LoginDetailsDaoImpl;
 import com.gof.voting.dbutils.DBUtils;
+import com.gof.voting.jdbc.DBEngine;
+import com.gof.voting.jdbc.DBEngineImpl;
 import com.gof.voting.model.LoginDetails;
 import com.gof.voting.service.RegisterService;
 
@@ -27,13 +29,15 @@ public class RegisterServiceImpl implements RegisterService {
 	@Override
 	public boolean registerLogger(LoginDetails loginDetails) {
 		Connection connection = null;
-		RegisterDao registerDao = null;
+		LoginDetailsDao loginDetailsDao = null;
 		boolean isRegister = false;
+		DBEngine dbEngine = null;
 		try {
 			connection = DBUtils.getConnection();
-			registerDao = new RegisterDaoImpl();
+			dbEngine = new DBEngineImpl(connection);
+			loginDetailsDao = new LoginDetailsDaoImpl(dbEngine);
 			encryptCredential(loginDetails);
-			isRegister = registerDao.registerLogger(connection, loginDetails);
+			isRegister = loginDetailsDao.registerLogger(loginDetails);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -57,14 +61,4 @@ public class RegisterServiceImpl implements RegisterService {
 			// TODO: handle exception
 		}
 	}
-
-	/*
-	 * public static void main(String[] args) { LoginDetails loginDetails = new
-	 * LoginDetails(); loginDetails.setUserName("surajcse");
-	 * loginDetails.setPassword("surajcse"); loginDetails.setRole("user");
-	 * 
-	 * RegisterService registerService = null; try { registerService = new
-	 * RegisterServiceImpl(); registerService.registerLogger(loginDetails); }
-	 * catch (Exception e) { // TODO: handle exception } }
-	 */
 }

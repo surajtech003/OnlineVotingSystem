@@ -1,6 +1,5 @@
 package com.gof.voting.dao;
 
-import java.sql.Connection;
 import java.util.List;
 
 import com.gof.voting.model.VotingMenu;
@@ -14,9 +13,7 @@ import com.gof.voting.model.VotingMenu;
 public interface VotingDao {
 
 	/**
-	 * @param connection
 	 * @return list<VotingMenu>
 	 */
-	public List<VotingMenu> getVotingDetails(Connection connection);
-
+	public List<VotingMenu> getVotingDetails();
 }

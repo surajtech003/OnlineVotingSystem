@@ -29,6 +29,8 @@ public class RegisterController extends HttpServlet {
 
 		System.out.println("In side register controller");
 
+		String fname = request.getParameter("fname");
+		String lname = request.getParameter("lname");
 		String userName = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String role = request.getParameter("role");
@@ -36,6 +38,8 @@ public class RegisterController extends HttpServlet {
 
 		LoginDetails loginDetails = new LoginDetails();
 		loginDetails.setUserName(userName);
+		loginDetails.setFname(fname);
+		loginDetails.setLname(lname);
 		loginDetails.setPassword(password);
 		loginDetails.setRole(role);
 		loginDetails.setEmail(email);

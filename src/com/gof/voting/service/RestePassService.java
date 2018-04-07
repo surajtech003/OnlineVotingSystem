@@ -15,5 +15,7 @@ public interface RestePassService {
 	 * @return
 	 */
 	boolean updateResetPassword(String email, String password);
+	
+	boolean validateMail(String mail);
 
 }

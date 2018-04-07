@@ -12,6 +12,8 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import com.gof.voting.model.LoginDetails;
+
 /**
  * This {@link SenderMail} class is used to send mail for forgetPassword link.
  * 
@@ -58,7 +60,7 @@ public class SenderMail {
 	/**
 	 * @param toMail
 	 */
-	public void sendMail(String toMail) {
+	public void sendMail(String toMail, LoginDetails loginDetails) {
 
 		 Properties propsEmail = new Properties();
 				

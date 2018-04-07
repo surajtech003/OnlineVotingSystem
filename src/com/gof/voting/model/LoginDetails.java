@@ -8,23 +8,17 @@ package com.gof.voting.model;
  */
 public class LoginDetails {
 
-	private int userId;
-
 	private String userName;
 
-	private String password;
+	private String fname;
 
+	private String lname;
+
+	private String password;
+	
 	private String role;
 	
 	private String email;
-
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
 
 	public String getUserName() {
 		return userName;
@@ -32,6 +26,22 @@ public class LoginDetails {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
+	}
+
+	public String getFname() {
+		return fname;
+	}
+
+	public void setFname(String fname) {
+		this.fname = fname;
+	}
+
+	public String getLname() {
+		return lname;
+	}
+
+	public void setLname(String lname) {
+		this.lname = lname;
 	}
 
 	public String getPassword() {
@@ -49,7 +59,7 @@ public class LoginDetails {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -61,10 +71,11 @@ public class LoginDetails {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("LoginDetails [userId=").append(userId)
-				.append(", userName=").append(userName).append(", password=")
-				.append(password).append(", role=").append(role).append("]");
+		builder.append("LoginDetails [userName=").append(userName)
+				.append(", fname=").append(fname).append(", lname=")
+				.append(lname).append(", password=").append(password)
+				.append(", role=").append(role).append(", email=")
+				.append(email).append("]");
 		return builder.toString();
 	}
-
 }

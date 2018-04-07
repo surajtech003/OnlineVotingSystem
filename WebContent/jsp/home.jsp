@@ -53,6 +53,12 @@ float:right;
       <h1>Sign Up</h1>
       <p>Please fill in this form to create an account.</p>
       <hr>
+      <label for="fname"><b>First Name</b></label>
+      <input type="text" placeholder="Enter First Name" name="fname" id="fname">
+      
+      <label for="lname"><b>Last Name</b></label>
+      <input type="text" placeholder="Enter Last Name" name="lname" id="lname">
+      
       <label for="username"><b>Username</b></label>
       <input type="text" placeholder="Enter Username" name="uname" id="uname">
 

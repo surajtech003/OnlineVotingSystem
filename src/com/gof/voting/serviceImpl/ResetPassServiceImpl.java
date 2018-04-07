@@ -5,11 +5,14 @@ package com.gof.voting.serviceImpl;
 
 import java.sql.Connection;
 
-import com.gof.voting.dao.RegisterDao;
-import com.gof.voting.dao.ResetPassDao;
-import com.gof.voting.daoImpl.RegisterDaoImpl;
-import com.gof.voting.daoImpl.ResetPassDaoImpl;
+import com.gof.voting.crypto.AesEncrptionDecryptionAlgo;
+import com.gof.voting.dao.LoginDetailsDao;
+import com.gof.voting.daoImpl.LoginDetailsDaoImpl;
 import com.gof.voting.dbutils.DBUtils;
+import com.gof.voting.email.SenderMail;
+import com.gof.voting.jdbc.DBEngine;
+import com.gof.voting.jdbc.DBEngineImpl;
+import com.gof.voting.model.LoginDetails;
 import com.gof.voting.service.RestePassService;
 
 /**
@@ -24,17 +27,50 @@ public class ResetPassServiceImpl implements RestePassService {
 	@Override
 	public boolean updateResetPassword(String email, String password) {
 		Connection connection = null;
-		ResetPassDao resetPassDao = null;
 		boolean isUpdate = false;
+		LoginDetailsDao loginDetailsDao = null;
+		DBEngine dbEngine = null;
+		AesEncrptionDecryptionAlgo aesEncrptionDecryptionAlgo = null;
 		try {
 			connection = DBUtils.getConnection();
-			resetPassDao = new ResetPassDaoImpl();
-			isUpdate = resetPassDao.updateResetPassword(connection, email, password);
+			dbEngine = new DBEngineImpl(connection);
+			loginDetailsDao = new LoginDetailsDaoImpl(dbEngine);
+			aesEncrptionDecryptionAlgo = new AesEncrptionDecryptionAlgo();
+			String encPass = aesEncrptionDecryptionAlgo.encrypt(password);
+			isUpdate = loginDetailsDao.updateResetPassword(email, encPass);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return isUpdate;
 	}
+
+	/* (non-Javadoc)
+	 * @see com.gof.voting.service.RestePassService#validateMail(java.lang.String)
+	 */
+	@Override
+	public boolean validateMail(String mail) {
+		Connection connection = null;
+		boolean isValidate = false;
+		LoginDetailsDao loginDetailsDao = null;
+		DBEngine dbEngine = null;
+		LoginDetails loginDetails = null;
+		SenderMail senderMail = null;
+		try {
+			connection = DBUtils.getConnection();
+			dbEngine = new DBEngineImpl(connection);
+			loginDetailsDao = new LoginDetailsDaoImpl(dbEngine);
+			loginDetails = loginDetailsDao.validateMailId(mail);
+			senderMail = new SenderMail();
+			if (loginDetails.getEmail().equals(mail)) {
+				senderMail.sendMail(mail, loginDetails);
+				isValidate = true;
+			} 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return isValidate;
+	}
+}
 	
 	
 	/*public static void main(String[] args) {
@@ -48,4 +84,4 @@ public class ResetPassServiceImpl implements RestePassService {
 			// TODO: handle exception
 		}
 	}*/
-}
+
